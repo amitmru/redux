@@ -1,8 +1,8 @@
-import logo from './logo.svg';
-import './App.css';
 import Counter from './counatine/Counter/Counter';
 import { configureStore } from './Redux/store';
 import { Provider } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
+import UserRouts from './Routes/UserRouts';
 
 function App() {
   let store = configureStore()
@@ -10,7 +10,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Provider store = {store}>
-          <Counter />
+          <Routes>
+            <Route path='/*' element={<UserRouts />} />
+          </Routes>
         </Provider>
       </header>
     </div>
